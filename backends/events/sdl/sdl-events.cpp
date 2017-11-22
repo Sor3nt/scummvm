@@ -228,46 +228,8 @@ bool SdlEventSource::handleKbdMouse(Common::Event &event) {
 				}
 			}
 
-			int16 speedFactor = 25;
-
-			if (g_system->hasFeature(OSystem::kFeatureKbdMouseSpeed)) {
-				switch (ConfMan.getInt("kbdmouse_speed")) {
-				// 0.25 keyboard pointer speed
-				case 0:
-					speedFactor = 100;
-					break;
-				// 0.5 speed
-				case 1:
-					speedFactor = 50;
-					break;
-				// 0.75 speed
-				case 2:
-					speedFactor = 33;
-					break;
-				// 1.0 speed
-				case 3:
-					speedFactor = 25;
-					break;
-				// 1.25 speed
-				case 4:
-					speedFactor = 20;
-					break;
-				// 1.5 speed
-				case 5:
-					speedFactor = 17;
-					break;
-				// 1.75 speed
-				case 6:
-					speedFactor = 14;
-					break;
-				// 2.0 speed
-				case 7:
-					speedFactor = 12;
-					break;
-				default:
-					speedFactor = 25;
-				}
-			}
+            // Hack to double the speed for PS4 Controller usage on a RetroPie
+			int16 speedFactor = 12;
 
 			// - The modifier key makes the mouse movement slower
 			// - The extra factor "delay/speedFactor" ensures velocities 
